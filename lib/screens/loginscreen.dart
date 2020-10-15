@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_apps/screens/homescreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -38,12 +39,21 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Center(
                   child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10, bottom: 10),
-                        child: Image.asset(
-                          'images/flutter.png',
-                          width: 200,
-                          height: 200,
+                      Container(
+                        //margin: EdgeInsets.only(top: -100),
+                        // width: 500,
+                        // height: 500.0,
+                        // decoration: new BoxDecoration(
+                        //   color: Colors.orange,
+                        //   shape: BoxShape.circle,
+                        // ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 100, bottom: 50),
+                          child: Image.asset(
+                            'images/flutter.png',
+                            width: 100,
+                            height: 100,
+                          ),
                         ),
                       ),
                       Padding(
@@ -148,11 +158,13 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  void checkIsValid() {
+  checkIsValid() async {
     if(formKey.currentState.validate()){
       Toast.show("Login succeed", context);
+      //SET LOGIN SESSION
+      SharedPreferences pref = await SharedPreferences.getInstance();
+      pref.setBool("session", true);
       //to move another page, then call Navigator.
-
       Navigator.push(context, MaterialPageRoute(builder: (context)=> Home()));
     }else{
       Toast.show("Login failed", context);
