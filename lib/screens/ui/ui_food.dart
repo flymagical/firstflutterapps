@@ -36,8 +36,8 @@ class UIFoods {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(foods.name, style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold, color: Colors.blue[200]),),
-                              Text(getInitialDetails(foods.details))
+                              Text(foods.name, style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold, color: Colors.blue[200], fontFamily: 'Nunito'),),
+                              Text(getInitialDetails(foods.details), style: TextStyle(fontFamily: 'Nunito'),)
                             ],
                           ),
                           CircleAvatar(
@@ -67,39 +67,51 @@ return foodDetails.substring(0,50)+" ...";
   Widget buildFoodDetail(ModelFoods modelFoods){
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            decoration: BoxDecoration(color: Colors.blue[100], borderRadius: BorderRadius.circular(25)),
-            width: double.infinity,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 100, bottom: 20, left:50),
-                  child: Text(modelFoods.name.toUpperCase(), style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white),),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(50),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(25),
-                    child: Image.asset(modelFoods.image),
+      child: Container(
+        decoration: BoxDecoration(color: Colors.grey[300], borderRadius: BorderRadius.circular(25)),
+        
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              decoration: BoxDecoration(color: Colors.blue[100], borderRadius: BorderRadius.circular(25)),
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 50, right:50),
+                    child: Container(
+                      decoration: BoxDecoration(color: Colors.blue[300], borderRadius: BorderRadius.only(topRight: Radius.circular(30), bottomRight: Radius.circular(30))),
+                      width: double.infinity,
+                      child: Container(
+                        margin: EdgeInsets.only(left:20, top:10, bottom:10),
+                        child: Text(modelFoods.name.toUpperCase(), style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white, fontFamily: 'Nunito'),))),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(50),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(25),
+                      child: Image.asset(modelFoods.image),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          // Image.asset(modelFoods.image),
-          SizedBox(height: 10,),
-          Padding(
-            padding: const EdgeInsets.only(left:50, right:50),
-            child: Text(
-              modelFoods.details
-            ),
-          )
-        ],
+            // Image.asset(modelFoods.image),
+            SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.only(left:50, right:50),
+              child: Text(
+                modelFoods.details,
+                style: TextStyle(fontFamily: 'Nunito', color: Colors.grey),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
 }
+
+

@@ -62,8 +62,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           'WELCOME BACK',
                           style: TextStyle(
                               fontSize: 23,
+                              fontFamily: 'Nunito',
                               fontWeight: FontWeight.bold,
                               color: Colors.blue[200]),
+                              
                         ),
                       ),
                       TextFormField(
@@ -117,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onPressed: checkIsValid,
                         child: Text(
                           "Login",
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 20, fontFamily: 'Nunito'),
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
@@ -127,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         textColor: Colors.white,
                         minWidth: double.infinity,
                         height: 50,
-                      )
+                      ),
                     ],
                   ),
                 )),

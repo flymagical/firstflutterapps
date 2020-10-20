@@ -7,7 +7,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home"),
+        title: Text("Home", style: TextStyle(fontFamily: 'Nunito'),),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -87,7 +87,7 @@ class Home extends StatelessWidget {
                 ),
                 Text(
                   title,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white, fontFamily: 'Nunito'),
                 )
               ],
             ),
