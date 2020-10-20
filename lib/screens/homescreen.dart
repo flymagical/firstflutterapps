@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'package:flutter_apps/screens/foodscreen.dart';
 import 'package:flutter_apps/screens/drinkscreen.dart';
+import 'package:flutter_apps/screens/newsportalscreen.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -27,8 +28,8 @@ class Home extends StatelessWidget {
               Flexible(
                 child: Row(
                   children: [
-                    clsGridMenuTemplate("Internet", "images/internet.png",
-                        Colors.blue, context, Foods()),
+                    clsGridMenuTemplate("News Portal", "images/internet.png",
+                        Colors.blue, context, NewsPortalScreen()),
                     clsGridMenuTemplate("Dress", "images/dress.png",
                         Colors.blue, context, Drinks()),
                   ],
