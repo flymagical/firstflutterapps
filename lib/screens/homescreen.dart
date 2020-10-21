@@ -6,6 +6,7 @@ import 'package:flutter_apps/screens/newsportalscreen.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Home extends StatelessWidget {
+  static String screenId = "home";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,10 +21,12 @@ class Home extends StatelessWidget {
               Flexible(
                 child: Row(
                   children: [
+                    // clsGridMenuTemplate("Foods", "images/vegan-food.png",
+                    //     Colors.blue, context, Foods()),
                     clsGridMenuTemplate("Foods", "images/vegan-food.png",
-                        Colors.blue, context, Foods()),
+                        Colors.blue, context, Foods.screenId),
                     clsGridMenuTemplate("Drinks", "images/no-drinks.png",
-                        Colors.blue, context, Drinks()),
+                        Colors.blue, context, Drinks.screenId),
                   ],
                 ),
               ),
@@ -31,9 +34,9 @@ class Home extends StatelessWidget {
                 child: Row(
                   children: [
                     clsGridMenuTemplate("News Portal", "images/internet.png",
-                        Colors.blue, context, NewsPortalScreen()),
+                        Colors.blue, context, NewsPortalScreen.screenId),
                     clsGridMenuTemplate("Photo Gallery", "images/dress.png",
-                        Colors.blue, context, Camera()),
+                        Colors.blue, context, Camera.screenId),
                   ],
                 ),
               )
@@ -64,11 +67,13 @@ class Home extends StatelessWidget {
     );
   }
 
-  Widget clsGridMenuTemplate(String title, String image, Color color, BuildContext context, Widget action) {
+  //Widget clsGridMenuTemplate(String title, String image, Color color, BuildContext context, Widget action) {
+  Widget clsGridMenuTemplate(String title, String image, Color color, BuildContext context, String action) {
     return Flexible(
       child: GestureDetector(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> action));
+          //Navigator.push(context, MaterialPageRoute(builder: (context)=> action));
+          Navigator.pushNamed(context, action);
         },
         child: Padding(
           padding: const EdgeInsets.all(5),

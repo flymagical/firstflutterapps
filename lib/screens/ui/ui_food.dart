@@ -12,12 +12,15 @@ class UIFoods {
           ModelFoods foods = DataFoods.getItemFoods(index);
           return InkWell(
             onTap: () {
-              Navigator.push(
-                context, 
-                MaterialPageRoute(
-                  builder: (context)=> FoodDetails(modelFoods: foods,)
-                  )
-                );
+              // Navigator.push(
+              //   context, 
+              //   MaterialPageRoute(
+              //     builder: (context)=> FoodDetails(modelFoods: foods,)
+              //     )
+              //   );
+
+              //using pushnamed with parameters
+              Navigator.pushNamed(context, FoodDetails.screenId, arguments: foods);
             },
             child: Card(
               elevation: 7,

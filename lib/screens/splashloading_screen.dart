@@ -6,6 +6,7 @@ import 'package:splashscreen/splashscreen.dart';
 
 
 class SplashLoadingScreen extends StatelessWidget {
+  static String screenId = "splash";
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
@@ -24,9 +25,10 @@ class SplashLoadingScreen extends StatelessWidget {
     SharedPreferences pref = await SharedPreferences.getInstance();
     bool session = pref.getBool("session") ?? false;
     if(session){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Home()));
+      Navigator.pushReplacementNamed(context, Home.screenId);
     }else{
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+      //Navigator.pushReplacementNamed(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+      Navigator.pushReplacementNamed(context, LoginScreen.screenId);
     }
   }
 }

@@ -6,6 +6,7 @@ import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:toast/toast.dart';
 
 class NewsPortalScreen extends StatefulWidget {
+  static final String screenId = "news";
   @override
   _NewsPortalScreenState createState() => _NewsPortalScreenState();
 }
@@ -56,6 +57,7 @@ class _NewsPortalScreenState extends State<NewsPortalScreen> {
 }
 
 class NewsDetails extends StatelessWidget {
+  static final String screenId = "newsDetail";
   final UINewsPortal uiNewsPortal = UINewsPortal();
   final Articles articles;
 
@@ -75,10 +77,12 @@ class NewsDetails extends StatelessWidget {
             icon: Icon(
               Icons.open_in_browser
             ), onPressed: (){
-              Navigator.push(
-                context, 
-                MaterialPageRoute(
-                  builder: (context) => WebViewNewsPortal(articles: articles,)));
+              // Navigator.push(
+              //   context, 
+              //   MaterialPageRoute(
+              //     builder: (context) => WebViewNewsPortal(articles: articles,)));
+
+              Navigator.pushNamed(context, WebViewNewsPortal.screenId, arguments: articles);
             },
           )
         ],
@@ -89,6 +93,7 @@ class NewsDetails extends StatelessWidget {
 }
 
 class WebViewNewsPortal extends StatelessWidget {
+  static final String screenId = "webViewNews";
   final Articles articles;
 
   WebViewNewsPortal({Key key, @required this.articles}) : super(key: key);

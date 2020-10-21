@@ -14,12 +14,14 @@ class UIDrinks{
           return InkWell(
             splashColor: Colors.red,
             onTap: (){
-                Navigator.push(
-                context, 
-                MaterialPageRoute(
-                  builder: (context)=> FoodDetails(modelFoods: modelFoods,)
-                  )
-                );
+                // Navigator.push(
+                // context, 
+                // MaterialPageRoute(
+                //   builder: (context)=> FoodDetails(modelFoods: modelFoods,)
+                //   )
+                // );
+
+                Navigator.pushNamed(context, FoodDetails.screenId, arguments: modelFoods);
             },
             child: Card(
               elevation: 7,

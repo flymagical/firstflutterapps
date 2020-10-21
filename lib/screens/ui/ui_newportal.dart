@@ -12,12 +12,13 @@ class UINewsPortal {
           Articles articleData = articles[index];
           return InkWell(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => NewsDetails(
-                          articles: articleData,
-                        )));
+              // Navigator.push(
+              //     context,
+                  // MaterialPageRoute(
+                  //   builder: (context) => NewsDetails(
+                  //         articles: articleData,
+                  //       )));
+                  Navigator.pushNamed(context, NewsDetails.screenId, arguments: articleData);
             },
             child: Padding(
               padding: const EdgeInsets.only(left:50, right:50, top:20),

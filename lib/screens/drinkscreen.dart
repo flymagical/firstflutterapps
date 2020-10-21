@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_apps/screens/ui/ui_drink.dart';
 
 class Drinks extends StatelessWidget {
+  static final String screenId = "drinks";
   final UIDrinks uiDrinks = UIDrinks();
   @override
   Widget build(BuildContext context) {

@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 
 class LoginScreen extends StatefulWidget {
+  static final String screenId = "login";
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -167,7 +168,8 @@ class _LoginScreenState extends State<LoginScreen> {
       SharedPreferences pref = await SharedPreferences.getInstance();
       pref.setBool("session", true);
       //to move another page, then call Navigator.
-      Navigator.push(context, MaterialPageRoute(builder: (context)=> Home()));
+      //Navigator.push(context, MaterialPageRoute(builder: (context)=> Home()));
+      Navigator.pushNamed(context, Home.screenId);
     }else{
       Toast.show("Login failed", context);
     }

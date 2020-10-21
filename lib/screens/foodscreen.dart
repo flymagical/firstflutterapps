@@ -4,6 +4,7 @@ import 'package:flutter_apps/screens/ui/ui_food.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class Foods extends StatelessWidget {
+  static final String screenId = "foods";
   final UIFoods uiFoods = UIFoods();
   @override
   Widget build(BuildContext context) {
@@ -18,6 +19,7 @@ class Foods extends StatelessWidget {
 }
 
 class FoodDetails extends StatelessWidget {
+  static final String screenId = "foodDetail";
   final UIFoods uiFoods = UIFoods();
   final ModelFoods modelFoods;
 
@@ -37,10 +39,12 @@ class FoodDetails extends StatelessWidget {
             icon: Icon(
               Icons.open_in_browser
             ), onPressed: (){
-              Navigator.push(
-                context, 
-                MaterialPageRoute(
-                  builder: (context) => WebViewFoods(modelFoods: modelFoods)));
+              // Navigator.push(
+              //   context, 
+              //   MaterialPageRoute(
+              //     builder: (context) => WebViewFoods(modelFoods: modelFoods)));
+
+              Navigator.pushNamed(context, WebViewFoods.screenId, arguments: modelFoods);
             },
           )
         ],
@@ -51,6 +55,7 @@ class FoodDetails extends StatelessWidget {
 }
 
 class WebViewFoods extends StatelessWidget {
+  static final String screenId = "webviewfoods";
   final ModelFoods modelFoods;
 
   WebViewFoods({Key key, @required this.modelFoods}) : super(key: key);
