@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_apps/screens/camerascreen.dart';
+import 'package:flutter_apps/screens/databasescreen.dart';
 import 'package:flutter_apps/screens/drinkscreen.dart';
 import 'package:flutter_apps/screens/foodscreen.dart';
 import 'package:flutter_apps/screens/homescreen.dart';
@@ -68,6 +69,7 @@ class MyApp extends StatelessWidget {
         Drinks.screenId: (context) => Drinks(),
         NewsPortalScreen.screenId: (context) => NewsPortalScreen(),
         Camera.screenId: (context) => Camera(),
+        DatabaseScreen.screenId : (context) => DatabaseScreen()
       },
       //end of using routes
     );

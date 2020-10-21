@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import 'package:flutter_apps/screens/camerascreen.dart';
+import 'package:flutter_apps/screens/databasescreen.dart';
 import 'package:flutter_apps/screens/foodscreen.dart';
 import 'package:flutter_apps/screens/drinkscreen.dart';
 import 'package:flutter_apps/screens/newsportalscreen.dart';
@@ -35,6 +36,16 @@ class Home extends StatelessWidget {
                   children: [
                     clsGridMenuTemplate("News Portal", "images/internet.png",
                         Colors.blue, context, NewsPortalScreen.screenId),
+                    clsGridMenuTemplate("Photo Gallery", "images/dress.png",
+                        Colors.blue, context, Camera.screenId),
+                  ],
+                ),
+              ),
+              Flexible(
+                child: Row(
+                  children: [
+                    clsGridMenuTemplate("Database SQFLite", "images/internet.png",
+                        Colors.blue, context, DatabaseScreen.screenId),
                     clsGridMenuTemplate("Photo Gallery", "images/dress.png",
                         Colors.blue, context, Camera.screenId),
                   ],
