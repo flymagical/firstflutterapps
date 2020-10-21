@@ -1,7 +1,9 @@
 import "package:flutter/material.dart";
+import 'package:flutter_apps/screens/camerascreen.dart';
 import 'package:flutter_apps/screens/foodscreen.dart';
 import 'package:flutter_apps/screens/drinkscreen.dart';
 import 'package:flutter_apps/screens/newsportalscreen.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -30,8 +32,8 @@ class Home extends StatelessWidget {
                   children: [
                     clsGridMenuTemplate("News Portal", "images/internet.png",
                         Colors.blue, context, NewsPortalScreen()),
-                    clsGridMenuTemplate("Dress", "images/dress.png",
-                        Colors.blue, context, Drinks()),
+                    clsGridMenuTemplate("Photo Gallery", "images/dress.png",
+                        Colors.blue, context, Camera()),
                   ],
                 ),
               )

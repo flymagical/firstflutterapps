@@ -49,7 +49,7 @@ class Articles {
 
   Articles.fromJson(Map<String, dynamic> json) {
     source =
-        json['source'] != null ? new Source.fromJson(json['source']) : "";
+        json['source'] != null ? new Source.fromJson(json['source']) : null;
     author = json['author'];
     title = json['title'];
     description = json['description'];
@@ -76,7 +76,7 @@ class Articles {
 }
 
 class Source {
-  Null id;
+  String id;
   String name;
 
   Source({this.id, this.name});

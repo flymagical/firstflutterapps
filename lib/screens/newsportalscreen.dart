@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_apps/models/model_newsportal.dart';
 import 'package:flutter_apps/networks/network_newsportal.dart';
 import 'package:flutter_apps/screens/ui/ui_newportal.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:toast/toast.dart';
 
 class NewsPortalScreen extends StatefulWidget {
@@ -24,13 +25,18 @@ class _NewsPortalScreenState extends State<NewsPortalScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("News Portal"),),
-      body: loading == true ? Center(child: CircularProgressIndicator(),) : uiNewsPortal.buildNewsList(articles),
+      body: 
+        loading == true ? 
+          Center(child: CircularProgressIndicator(),) 
+        : 
+          uiNewsPortal.buildNewsList(articles),
     );
   }
 
   void getNewsData(){
     loading = true;
     networkNewsPortal.getNewsData().then((responses){
+      print("Sampe sini bener!!!!");
       if(responses.status == "ok"){
         var articleData = responses.articles;
         print("status: "+responses.status);
@@ -40,6 +46,9 @@ class _NewsPortalScreenState extends State<NewsPortalScreen> {
         });
         Toast.show("Data is found", context);
       }else{
+        setState((){
+          loading = false;
+        });
         Toast.show("Data is not found", context);
       }
     });
@@ -66,15 +75,30 @@ class NewsDetails extends StatelessWidget {
             icon: Icon(
               Icons.open_in_browser
             ), onPressed: (){
-              // Navigator.push(
-              //   context, 
-              //   MaterialPageRoute(
-              //     builder: (context) => WebViewFoods(modelFoods: modelFoods)));
+              Navigator.push(
+                context, 
+                MaterialPageRoute(
+                  builder: (context) => WebViewNewsPortal(articles: articles,)));
             },
           )
         ],
       ),
       body: uiNewsPortal.buildNewsDetail(articles)
+    );
+  }
+}
+
+class WebViewNewsPortal extends StatelessWidget {
+  final Articles articles;
+
+  WebViewNewsPortal({Key key, @required this.articles}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return WebviewScaffold(
+      appBar: AppBar(
+        title: Text(articles.title),
+      ),
+      url: articles?.url,
     );
   }
 }
