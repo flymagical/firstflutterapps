@@ -4,6 +4,7 @@ import 'package:flutter_apps/screens/databasescreen.dart';
 import 'package:flutter_apps/screens/foodscreen.dart';
 import 'package:flutter_apps/screens/drinkscreen.dart';
 import 'package:flutter_apps/screens/newsportalscreen.dart';
+import 'package:flutter_apps/screens/quizscreen.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Home extends StatelessWidget {
@@ -46,8 +47,8 @@ class Home extends StatelessWidget {
                   children: [
                     clsGridMenuTemplate("Database SQFLite", "images/internet.png",
                         Colors.blue, context, DatabaseScreen.screenId),
-                    clsGridMenuTemplate("Photo Gallery", "images/dress.png",
-                        Colors.blue, context, Camera.screenId),
+                    clsGridMenuTemplate("Quiz", "images/dress.png",
+                        Colors.blue, context, Quiz.screenId),
                   ],
                 ),
               )

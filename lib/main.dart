@@ -6,6 +6,7 @@ import 'package:flutter_apps/screens/foodscreen.dart';
 import 'package:flutter_apps/screens/homescreen.dart';
 import 'package:flutter_apps/screens/loginscreen.dart';
 import 'package:flutter_apps/screens/newsportalscreen.dart';
+import 'package:flutter_apps/screens/quizscreen.dart';
 import 'package:flutter_apps/screens/splashloading_screen.dart';
 
 void main() {
@@ -69,7 +70,8 @@ class MyApp extends StatelessWidget {
         Drinks.screenId: (context) => Drinks(),
         NewsPortalScreen.screenId: (context) => NewsPortalScreen(),
         Camera.screenId: (context) => Camera(),
-        DatabaseScreen.screenId : (context) => DatabaseScreen()
+        DatabaseScreen.screenId : (context) => DatabaseScreen(),
+        Quiz.screenId : (context) => Quiz()
       },
       //end of using routes
     );

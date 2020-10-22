@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_apps/models/model_newsportal.dart';
-import 'package:flutter_apps/networks/network_newsportal.dart';
+import 'package:flutter_apps/networks/network.dart';
 import 'package:flutter_apps/screens/ui/ui_newportal.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:toast/toast.dart';
@@ -14,7 +14,7 @@ class NewsPortalScreen extends StatefulWidget {
 class _NewsPortalScreenState extends State<NewsPortalScreen> {
   bool loading;
   List<Articles> articles;
-  NetworkNewsPortal networkNewsPortal = NetworkNewsPortal();
+  Network networkNewsPortal = Network();
   UINewsPortal uiNewsPortal = UINewsPortal();
   @override
   void initState(){
